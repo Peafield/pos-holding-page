@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+@theme {
+    --font-serif: var(--font-jost);
+    --animate-glitch: glitch 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+@layer base {
+    @keyframes glitch {
+        0% {
+            clip-path: inset(50% 0 30% 0);
+        }
+        20% {
+            clip-path: inset(10% 0 70% 0);
+        }
+        40% {
+            clip-path: inset(80% 0 5% 0);
+        }
+        60% {
+            clip-path: inset(30% 0 40% 0);
+        }
+        80% {
+            clip-path: inset(60% 0 15% 0);
+        }
+        100% {
+            clip-path: inset(40% 0 33% 0);
+        }
+    }
+}
+
+@layer components {
+    .glitch-container {
+        @apply relative inline-block;
+    }
+
+    .glitch-container::before,
+    .glitch-container::after {
+        content: attr(data-text);
+        @apply absolute top-0 left-0 h-full w-full;
+        @apply invisible;
+    }
+
+    .glitch-container::before {
+        @apply left-px text-transparent [-webkit-text-stroke:1px_theme(colors.slate.500)];
+    }
+
+    .glitch-container::after {
+        @apply -left-px text-transparent [-webkit-text-stroke:1px_theme(colors.slate.300)];
+    }
+    .glitch-container:hover::before {
+        @apply visible animate-glitch;
+    }
+
+    .glitch-container:hover::after {
+        @apply visible animate-glitch [animation-direction:reverse];
+    }
+}
