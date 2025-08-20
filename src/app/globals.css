@@ -47,11 +47,13 @@
     .glitch-container::after {
         @apply -left-px text-transparent [-webkit-text-stroke:1px_theme(colors.slate.300)];
     }
-    .glitch-container:hover::before {
-        @apply visible animate-glitch;
-    }
+    @media (hover: hover) {
+        .glitch-container:hover::before {
+            @apply visible animate-glitch;
+        }
 
-    .glitch-container:hover::after {
-        @apply visible animate-glitch [animation-direction:reverse];
+        .glitch-container:hover::after {
+            @apply visible animate-glitch [animation-direction:reverse];
+        }
     }
 }
