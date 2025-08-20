@@ -1,7 +1,7 @@
 export default function Home() {
 	return (
 		<div
-			className="flex max-h-svh w-full flex-col items-start justify-between bg-cover bg-center bg-no-repeat lg:bg-size-[90%] lg:bg-[100%_24%] xl:bg-[100%_22%]  lg:flex-row p-8 lg:py-[14%] lg:px-[8%] xl:px-[10%]"
+			className="flex min-h-screen w-full flex-col items-start justify-between bg-cover bg-center bg-no-repeat lg:bg-size-[90%] lg:bg-[100%_24%] xl:bg-[100%_22%]  lg:flex-row p-8 lg:py-[14%] lg:px-[8%] xl:px-[10%]"
 			style={{ backgroundImage: "url('/elastic-I-flat.webp')" }}
 		>
 			<div className="text-left">
